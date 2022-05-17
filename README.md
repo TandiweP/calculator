@@ -1,3 +1,7 @@
+DESCRIPTION: 
+React calculator created from scratch using css grid for styling structure and JS functions for each operation.  Includes functions to seperate digits with commas accoding to the 'eng-us' formatting, delete the ending digit, clear output to reset state, and prevents automatic deletion of zero's added after a decimal. 
+Based on WDS React Projects. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
