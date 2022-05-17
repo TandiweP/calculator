@@ -23,13 +23,19 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           currentOperand: payload.digit,
-          overwrite: false
+          overwrite: false,
         }
       }
       //can't add extra "0":
-      if (payload.digit === "0" && state.currentOperand === "0") return state  
+      if (payload.digit === "0" && state.currentOperand === "0") {
+        return state
+      }  
       //can't add extra ".":
-      if (payload.digit === "." && state.currentOperand.includes(".")) return state 
+      if (payload.digit === "." && state.currentOperand == null) { return state } 
+      if (payload.digit === "." && state.currentOperand.includes(".")) { return state } 
+      if (payload.digit === "." && state.currentOperand.includes(".")) {
+        return state
+      } 
 
       //adding new digit to the end of the currentOperand:
       return {
@@ -68,7 +74,12 @@ function reducer(state, { type, payload }) {
 
     //returns empty state:
     case ACTIONS.CLEAR: 
-      return {} 
+      return {
+        ...state,
+        currentOperand: "0", 
+        previousOperand: null, 
+        operation: null
+    } 
 
     case ACTIONS.DELETE_DIGIT:  
     //return empty object if in overwrite state:
